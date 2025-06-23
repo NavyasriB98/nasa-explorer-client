@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://localhost:5000/api';
+const API_BASE_URL = 'https://nasa-explorer-server-navyasris-projects-1ce98fca.vercel.app/';
 
 // Error types for better error handling
 export const ErrorTypes = {
