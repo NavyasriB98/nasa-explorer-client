@@ -1,4 +1,4 @@
-const API_BASE_URL = '/api';
+const API_BASE_URL = 'https://nasa-explorer-server.vercel.app/';
 
 // Error types for better error handling
 export const ErrorTypes = {
@@ -150,7 +150,7 @@ const withRetry = async (fetchFn, retryCount = 0) => {
 export const apiService = {
   // Fetch APOD data
   async fetchAPOD(date = null) {
-    const endpoint = date ? `${API_BASE_URL}/apod?date=${date}` : `${API_BASE_URL}/apod`;
+    const endpoint = date ? `${API_BASE_URL}/apod/${date}` : `${API_BASE_URL}/apod`;
     
     return withRetry(async () => {
       const response = await fetchWithRetry(endpoint);
