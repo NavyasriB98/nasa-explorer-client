@@ -1,4 +1,4 @@
-const API_BASE_URL = 'https://nasa-explorer-server.onrender.com';
+const API_BASE_URL = 'https://nasa-explorer-server.onrender.com/';
 
 // Error types for better error handling
 export const ErrorTypes = {
@@ -150,7 +150,7 @@ const withRetry = async (fetchFn, retryCount = 0) => {
 export const apiService = {
   // Fetch APOD data
   async fetchAPOD(date = null) {
-    const endpoint = date ? `${API_BASE_URL}/apod/${date}` : `${API_BASE_URL}/apod`;
+    const endpoint = date ? `${API_BASE_URL}api/apod/${date}` : `${API_BASE_URL}api/apod`;
     
     return withRetry(async () => {
       const response = await fetchWithRetry(endpoint);
@@ -172,7 +172,7 @@ export const apiService = {
   // Health check
   async healthCheck() {
     return withRetry(async () => {
-      const response = await fetchWithRetry(`${API_BASE_URL.replace('/api', '')}/health`);
+      const response = await fetchWithRetry(`${API_BASE_URL}health`);
       return await response.json();
     });
   },
